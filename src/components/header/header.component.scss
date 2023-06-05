@@ -1,0 +1,151 @@
+nav {
+  box-shadow: 0 .125rem .25rem rgba(0,0,0,.075);
+  position: fixed;
+  width: 100%;
+  background-color: white;
+  z-index: 1;
+
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 65px;
+
+    .logo {
+      width: 100%;
+      max-width: 128px;
+    }
+
+    @media (max-width: 991px) {
+      .btn_focus-primary {
+        font-size: 14px;
+        min-width: auto;
+        padding: 6px 18px;
+        display: inline-flex;
+      }
+    }
+
+    .logout,
+    .login {
+      cursor: pointer;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 28px;
+      text-align: center;
+      letter-spacing: 0.5px;
+      color: #576168;
+      padding-right: 12px;
+      text-decoration: none;
+
+      @media (max-width: 991px) {
+        padding-right: 6px;
+      }
+    }
+
+    .menu {
+      display: flex;
+      align-items: center;
+
+      .user-image {
+        opacity: 0.9;
+        margin-left: 12px;
+
+        &:hover {
+          opacity: 1;
+          // border: 1px solid #969CA0;
+        }
+
+        &__img {
+          width: 100%;
+        }
+
+
+      }
+    }
+  }
+}
+
+::ng-deep.user-setting {
+  box-shadow: 0px 0px 8px rgba(45, 57, 66, 0.2) !important;
+  border-radius: 12px !important;
+
+  .mat-mdc-menu-item {
+    padding: 0;
+  }
+}
+
+::ng-deep span.mdc-list-item__primary-text {
+  width: 100%;
+}
+
+
+.user-menu {
+  padding: 16px 0;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.5px;
+  color: #576168;
+  margin: 0 24px;
+
+  a {
+    text-decoration: none;
+    color: #576168;
+  }
+}
+
+.user-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+  line-height: 17px;
+  color: #969CA0;
+  margin: 12px 0;
+
+  &__text {
+    display: block;
+    justify-content: center;
+    font-size: 12px;
+    line-height: 17px;
+    color: #969CA0;
+    text-decoration: none;
+    padding: 6px;
+
+    &:hover {
+      // background: rgba(0,0,0,.04);
+    }
+  }
+}
+
+.user-self {
+  display: flex;
+  word-break: break-all;
+}
+.user-image {
+  width: 46px;
+  height: 46px;
+  border-radius: 25px;
+  border: none;
+  background-size: cover;
+  padding: 21px;
+  margin-right: 12px;
+}
+
+.user-username {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 21px;
+  letter-spacing: 0.5px;
+  color: #576168;
+}
+
+.user-email {
+  font-size: 12px;
+  line-height: 17px;
+  color: #969CA0;
+}
+
+.border-b {
+  border-bottom: 1px solid #E4E7ED;
+}

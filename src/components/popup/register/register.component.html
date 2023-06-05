@@ -1,0 +1,94 @@
+<section class="popup-register">
+  <div mat-dialog-content>
+    <div class="popup-register__close">
+      <button mat-button mat-dialog-close (click)="onClose()">x</button>
+    </div>
+    <div>
+      <div class="popup-register__img">
+        <div class="popup-register__img__size">
+          <img class="p-b" [defaultImage]="'./assets/images/components/popup-register-icon.svg'" [lazyLoad]="'./assets/images/components/popup-register-icon.svg'" />
+        </div>
+      </div>
+
+
+      <div style="display: flex; justify-content: center;">
+        <div class="popup-register__form">
+          <form (submit)="userRegister($event, stepAccount)">
+            <input type="hidden" name="title" value="Ponddy Tutors - Kids Landing">
+            <input type="hidden" name="source" value="Kids Landing">
+            <input type="hidden" name="sourceUrl" value="https://kids.ponddy.com/">
+            <input type="hidden" name="fieldParent" value="Parent: ">
+            <input type="hidden" name="fieldPhone" value="Phone: ">
+            <input type="hidden" name="fieldEmail" value="Email: ">
+            <input type="hidden" name="fieldState" value="State: ">
+            <input type="hidden" name="parent" [value]="dataUser.parent">
+            <input type="hidden" name="phone" [value]="dataUser.phone">
+            <input type="hidden" name="email" [value]="dataUser.email">
+            <input type="hidden" name="state" [value]="textState[stepAccount-1]">
+
+            <ng-container *ngIf="stepAccount != 3">
+              <!-- step 1 - password -->
+              <ng-container *ngIf="stepAccount === 1; else stepTwo">
+                <div class="popup-register__form__title-small">
+                  Sign up to claim your starting package
+                </div>
+                <div class="popup-register__form__description">
+                  {{ dataUser.email }}
+                </div>
+                <div class="popup-register__form__text">
+                  <input type="password" name="password" placeholder="Password" (keyup)="keyupPassword($event)">
+                  <div *ngIf="passwordLeast===false" class="popup-register__form__text__error"><div>At least 8 character.</div></div>
+                  <div *ngIf="passwordContain===false" class="popup-register__form__text__error">Contain both numbers and letters</div>
+                </div>
+                <div class="popup-register__form__text">
+                  <input type="password" name="confirmPassword" placeholder="Confirm Password" [class.error]="confirmPassword===false" (keyup)="keyupConfirmPassword($event)">
+                  <div *ngIf="confirmPassword===false" class="popup-register__form__text__error">Please keep it consistent with your password</div>
+                </div>
+
+                <div class="popup-register__form__submit">
+                  <input type="submit" value="Next" class="btn_green_dark-primary" [class.btn-disabled]="!onDisabled" [disabled]="!onDisabled">
+                </div>
+              </ng-container>
+
+              <!-- step 2 - verify -->
+              <ng-template #stepTwo>
+                <div class="popup-register__form__title-small">
+                  <div *ngIf="!dataUser.is_valid">This account is not verified yet.</div>
+                  <div>We just sent a verification email to:</div>
+                </div>
+                <div class="popup-register__form__description">
+                  {{ dataUser.email }}
+                </div>
+                <div class="popup-register__form__text popup-register__form__verify">
+                  <input type="tel" name="textVerify1" class="p-r" maxlength="1" [class.error]="verify===false" (keyup)="keyupVerify($event, 1)">
+                  <input type="tel" name="textVerify2" class="p-r" maxlength="1" [class.error]="verify===false" (keyup)="keyupVerify($event, 2)">
+                  <input type="tel" name="textVerify3" class="p-r" maxlength="1" [class.error]="verify===false" (keyup)="keyupVerify($event, 3)">
+                  <input type="tel" name="textVerify4" maxlength="1" [class.error]="verify===false" (keyup)="keyupVerify($event, 4)">
+                  <div *ngIf="verify===false" class="popup-register__form__text__error">Incorrect verification code submitted</div>
+                  <div *ngIf="verify===true" class="popup-register__form__text__annotation">Please enter the code to activate your account</div>
+                </div>
+                <div class="popup-register__form__submit">
+                  <input type="submit" value="Verify" class="btn_green_dark-primary" [class.btn-disabled]="!onDisabled" [disabled]="!onDisabled">
+                </div>
+              </ng-template>
+
+            </ng-container>
+
+
+            <!-- step 3 - successfully -->
+            <ng-container *ngIf="stepAccount === 3">
+              <div class="popup-register__form__title">
+                Welcome to Ponddy!
+              </div>
+              <div class="popup-register__form__description">
+                <div>Ponddy will contact you as soon as possible.</div>
+                <div>Your already have an account with</div>
+                <div class="popup-register__form__account">{{ dataUser.email }}</div>
+              </div>
+            </ng-container>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

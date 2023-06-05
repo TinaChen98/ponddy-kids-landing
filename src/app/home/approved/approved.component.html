@@ -1,0 +1,36 @@
+<section class="approved">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-12 col-md-10 col-11">
+        <div class="title">
+          Ponddy Education, Inc. is an institution accredited by WASC and UC System and approved by the College Board.
+        </div>
+        <div class="img-item">
+          <div class="license">
+            <div>
+              <img class="p-b" [defaultImage]="'./assets/images/home/landing-LOGO-Wasc-w.png'" [lazyLoad]="'./assets/images/home/landing-LOGO-Wasc-w.png'" />
+            </div>
+            <div>
+              <img [defaultImage]="'./assets/images/home/landing-LOGO-Universitl-w.png'" [lazyLoad]="'./assets/images/home/landing-LOGO-Universitl-w.png'" />
+            </div>
+          </div>
+          <div class="map">
+            <img [defaultImage]="'./assets/images/home/approved-map-w.png'" [lazyLoad]="'./assets/images/home/approved-map-w.png'" />
+          </div>
+        </div>
+        <div class="title title-bottom">
+          Users of Ponddy products come from more than 160+ countries and regions.
+        </div>
+
+        <div  class="description">
+          <span>For more information please download the flyers here:&nbsp;&nbsp;</span>
+          <span><a href="https://drive.google.com/file/d/10UqqznH8XA0V9g-JWdkqxsBsdC0R88G3/view" target="_blank">Kids Chinese Flyer (Simplified Chinese)</a></span>
+          <span *ngIf="web">&nbsp;,&nbsp;&nbsp;</span>
+          <span><a href="https://drive.google.com/file/d/1EUDx9wlw8SAWGzEXzkaZA8_sDhiN0NP3/view" target="_blank">Kids Chinese Flyer (Traditional Chinese)</a></span>
+          <span *ngIf="web">&nbsp;,&nbsp;&nbsp;and&nbsp;&nbsp;</span>
+          <span><a href="https://drive.google.com/file/d/1V0EuT8Flwv_h2weR9gUiJiPeYqE0u_B9/view" target="_blank">Kids Chinese Flyer (English)</a></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

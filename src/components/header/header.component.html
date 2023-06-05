@@ -1,0 +1,97 @@
+<header>
+  <nav>
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-12 col-md-12 col-12 text-center">
+          <div class="nav">
+            <a href="/" pageScroll href="#landing" class="logo">
+              <img src="https://ponddychinese-resources.s3-us-west-2.amazonaws.com/logos/tutors/TutorsLanding_140x32.svg">
+            </a>
+
+            <div class="menu">
+              <a *ngIf="!email" (click)="login()" class="login">
+                Log in
+              </a>
+
+              <ng-container *ngIf="web; else mobileForm">
+                <ng-container *ngIf="!email; else userLogout">
+                  <a pageScroll href="#landing" class="btn_focus-primary text_btn">
+                    <div>Contact Us</div>
+                  </a>
+                </ng-container>
+                <ng-template #userLogout>
+                  <a pageScroll (click)="goToClass()" class="btn_focus-primary text_btn">
+                    <div>Go to class</div>
+                  </a>
+                </ng-template>
+              </ng-container>
+
+              <ng-template #mobileForm>
+                <ng-container *ngIf="!email; else userLogout">
+                  <a pageScroll href="#form" class="btn_focus-primary text_btn">
+                    <img [defaultImage]="'./assets/images/components/header-contact-us-m.svg'" [lazyLoad]="'./assets/images/components/header-contact-us-m.svg'" />
+                  </a>
+                </ng-container>
+                <ng-template #userLogout>
+                  <a pageScroll (click)="goToClass()" class="btn_focus-primary text_btn">
+                    <div>Go ToClass</div>
+                  </a>
+                </ng-template>
+              </ng-template>
+
+              <ng-container *ngIf="email">
+                <button mat-button [matMenuTriggerFor]="animals" class="user-image" [style.background-image]="'url('+this.userSelf.image+')'"></button>
+                <mat-menu #animals="matMenu" class="user-setting">
+                  <div class="">
+                    <div class="user-self user-menu border-b">
+                      <div class="user-image" [style.background-image]="'url('+this.userSelf.image+')'"></div>
+                      <div>
+                        <div class="user-username">{{this.userSelf.username}}</div>
+                        <div class="user-email">{{this.userSelf.email}}</div>
+                      </div>
+                    </div>
+                  </div>
+                  <button mat-menu-item>
+                    <div class="user-menu border-b" (click)="changeProfile()">Change Profile</div>
+                  </button>
+                  <button mat-menu-item>
+                    <div class="user-menu border-b" (click)="goToClass()">Go To Class</div>
+                  </button>
+
+                  <ng-container *ngIf="web; else mobileUserForm">
+                    <a mat-menu-item pageScroll href="#landing">
+                      <div class="user-menu border-b">
+                        Contact Us
+                      </div>
+                    </a>
+                  </ng-container>
+                  <ng-template #mobileUserForm>
+                    <a mat-menu-item pageScroll href="#form">
+                      <div class="user-menu border-b">
+                        Contact Us
+                      </div>
+                    </a>
+                  </ng-template>
+
+                  <button mat-menu-item>
+                    <div class="user-menu border-b" (click)="logout()">Logout</div>
+                  </button>
+                  <div class="user-footer" style="display: flex;">
+                    <div >
+                      <a class="user-footer__text">Privacy policy</a>
+                    </div>
+                    <span class="">・</span>
+                    <div >
+                      <a class="user-footer__text">Terms of service</a>
+                    </div>
+                  </div>
+                </mat-menu>
+              </ng-container>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>

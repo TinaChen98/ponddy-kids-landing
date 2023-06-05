@@ -1,0 +1,172 @@
+<!-- 登入 -->
+<section class="popup-login" *ngIf="pageStep === 'login'">
+  <div mat-dialog-content>
+    <div class="popup-login__close">
+      <button mat-button mat-dialog-close>x</button>
+    </div>
+    <div class="popup-login__content">
+      <div class="popup-login__content__width">
+        <div class="popup-login__content__icon">
+          <img [defaultImage]="'./assets/images/components/popup-register-icon.svg'" [lazyLoad]="'./assets/images/components/popup-register-icon.svg'" />
+        </div>
+        <div class="popup-login__content__title">
+          Log in to access content
+        </div>
+        <div class="popup-login__content__input">
+          <input type="text" placeholder="Email Address" [value]="textEmail" (keyup)="keyupEmail($event)">
+        </div>
+        <div class="popup-login__content__input__error" *ngIf="userState === false">The email is not associated with any Ponddy account.</div>
+
+        <div *ngIf="userState" class="popup-login__content__input">
+          <input type="password" placeholder="Password" (keyup)="keyupPassword($event)">
+        </div>
+        <div class="popup-login__content__input__error" *ngIf="loginState === false">The password you’ve entered is incorrect.</div>
+
+        <div class="popup-login__content__btn">
+          <button *ngIf="userState === undefined || userState === false" class="btn_green_dark-primary" [class.btn-disabled]="textEmail === ''" [disabled]="textEmail === ''" (click)="clickContinue(textEmail)">Continue</button>
+          <button *ngIf="userState" class="btn_green_dark-primary" [class.btn-disabled]="textEmail === '' && textPassword === ''" [disabled]="textEmail === '' && textPassword === ''" (click)="clickLogin(textEmail, textPassword)">Login</button>
+        </div>
+        <div class="popup-login__content__page-step">
+          <span>Don’t have a Ponddy account? </span>
+          <span class="green" (click)="pageStepCreate()">Create one</span>
+        </div>
+        <hr>
+        <div>
+          <button class="popup-login__content__social" (click)="clickSocialLogin('fb')"><img src="./assets/images/components/popup-login-fb.svg">Continue with Facebook</button>
+        </div>
+        <div>
+          <button class="popup-login__content__social" (click)="clickSocialLogin('google')"><img src="./assets/images/components/popup-login-google.svg">Continue with Google</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 登入成功 -->
+<section class="popup-login"  *ngIf="pageStep === 'login_ok'">
+  <div mat-dialog-content>
+    <div class="popup-login__close">
+      <button mat-button mat-dialog-close>x</button>
+    </div>
+    <div class="popup-login__content">
+      <div class="popup-login__content__width">
+        <div class="popup-login__content__icon">
+          <img [defaultImage]="'./assets/images/components/popup-login-icon.svg'" [lazyLoad]="'./assets/images/components/popup-login-icon.svg'" />
+        </div>
+        <div class="popup-login__content__title">
+          Welcome to Ponddy Kids!
+        </div>
+        <div class="popup-login__content__description">
+          <div>The account you are currently logged in as is</div>
+          <div class="popup-login__content__account">
+            {{this.textEmail}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- 註冊 -->
+<section class="popup-login" *ngIf="pageStep === 'create'">
+  <div mat-dialog-content>
+    <div class="popup-login__close">
+      <button mat-button mat-dialog-close>x</button>
+    </div>
+    <div class="popup-login__content">
+      <div class="popup-login__content__width">
+        <div class="popup-login__content__icon">
+          <img [defaultImage]="'./assets/images/components/popup-register-icon.svg'" [lazyLoad]="'./assets/images/components/popup-register-icon.svg'" />
+        </div>
+        <div class="popup-login__content__title">
+          Create your account
+        </div>
+        <div class="popup-login__content__input">
+          <input type="text" placeholder="Email Address" [value]="this.textEmail" (keyup)="keyupEmail($event)">
+        </div>
+        <div class="popup-login__content__input__error" [class.error]="email===false" *ngIf="email === false">Please enter a valid email address.</div>
+        <div class="popup-login__content__input__error" [class.error]="is_valid" *ngIf="is_valid">Email Already Exists</div>
+
+        <div class="popup-login__content__input">
+          <input type="password" placeholder="Password" [value]="this.textPassword" (keyup)="keyupPassword($event)">
+        </div>
+        <div class="popup-login__content__input__error" *ngIf="passwordLeast === false">At least 8 character.</div>
+        <div class="popup-login__content__input__error" *ngIf="passwordContain === false">Contain both numbers and letters</div>
+
+        <div class="popup-login__content__btn">
+          <button class="btn_green_dark-primary" [class.btn-disabled]="!onDisabled" [disabled]="!onDisabled" (click)="clickCreate()">Create</button>
+        </div>
+        <div class="popup-login__content__page-step">
+          <span>Already have a Ponddy account? </span>
+          <span class="green" (click)="pageStepLogin()">Log in</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- 驗證 -->
+<section class="popup-login" *ngIf="pageStep === 'verify'">
+  <div mat-dialog-content>
+    <div class="popup-login__close">
+      <button mat-button mat-dialog-close>x</button>
+    </div>
+    <div class="popup-login__content">
+      <div class="popup-login__content__width">
+        <div class="popup-login__content__icon">
+          <img [defaultImage]="'./assets/images/components/popup-register-icon.svg'" [lazyLoad]="'./assets/images/components/popup-register-icon.svg'" />
+        </div>
+        <div class="popup-login__content__title">
+          Verify your identity
+        </div>
+        <div>
+          <div>The account you are currently logged in as is</div>
+          <div class="popup-login__content__account">
+            {{this.textEmail}}
+          </div>
+        </div>
+        <div class="popup-login__content__input popup-login__content__verify">
+          <input type="tel" class="p-r" maxlength="1" [class.error]="verifyState===false" (keyup)="keyupVerify($event, 1)">
+          <input type="tel" class="p-r" maxlength="1" [class.error]="verifyState===false" (keyup)="keyupVerify($event, 2)">
+          <input type="tel" class="p-r" maxlength="1" [class.error]="verifyState===false" (keyup)="keyupVerify($event, 3)">
+          <input type="tel" maxlength="1" [class.error]="verifyState===false" (keyup)="keyupVerify($event, 4)">
+        </div>
+        <div *ngIf="verifyState===false" class="popup-login__content__verified popup-login__content__verified-error">Incorrect verification code submitted</div>
+        <div *ngIf="verifyState===true || verifyState === undefined" class="popup-login__content__verified">Please enter the code to activate your account</div>
+
+        <div class="popup-login__content__btn">
+          <button class="btn_green_dark-primary" [class.btn-disabled]="!onDisabled" [disabled]="!onDisabled" (click)="clickVerify()">Verify</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- 登入成功 -->
+<section class="popup-login"  *ngIf="pageStep === 'verify_ok'">
+  <div mat-dialog-content>
+    <div class="popup-login__close">
+      <button mat-button mat-dialog-close>x</button>
+    </div>
+    <div class="popup-login__content">
+      <div class="popup-login__content__width">
+        <div class="popup-login__content__icon">
+          <img [defaultImage]="'./assets/images/components/popup-login-icon.svg'" [lazyLoad]="'./assets/images/components/popup-login-icon.svg'" />
+        </div>
+        <div class="popup-login__content__title">
+          Welcome to Ponddy Kids!
+        </div>
+        <div class="popup-login__content__description">
+          <div>You have successfully verified the account.</div>
+          <div>The account you are currently logged in as is</div>
+          <div class="popup-login__content__account">
+            {{this.textEmail}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,81 @@
+<section class="landing" id="landing">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-6 col-md-11 col-11">
+        <div>
+          <div class="title">
+            1-on-1 interactive lessons with our certified instructors.
+          </div>
+          <div class="description">
+            Offer both simplified and traditional Chinese lessons.
+          </div>
+          <div class="description">
+            Perfectly connect with Ponddy Chinese Accredited Courses in the future.
+          </div>
+          <form *ngIf="web" (submit)="userState($event)">
+              <div class="form">
+                <div class="form__title">
+                  Ready to learn Chinese with Ponddy?
+                </div>
+                <div class="form__description">
+                  Fill out the form below, and claim your FREE starting package now! Our consultant will contact you shortly.
+                </div>
+
+                <input type="hidden" name="title" value="Ponddy Tutors - Kids Landing">
+                <input type="hidden" name="source" value="Kids Landing">
+                <input type="hidden" name="sourceUrl" value="https://kids.ponddy.com/">
+                <input type="hidden" name="fieldParent" value="Parent: ">
+                <input type="hidden" name="fieldPhone" value="Phone: ">
+                <input type="hidden" name="fieldEmail" value="Email: ">
+                <!-- <input type="hidden" name="fieldState" value="State: ">
+                <input type="hidden" name="state" [value]="textState[stepAccount-1]"> -->
+                <div class="form__text">
+                  <input type="text" name="parent" placeholder="Parent's Name" (keyup)="onParent($event)">
+                </div>
+                <div class="form__text">
+                  <input type="text" name="phone" placeholder="Phone Number" (keyup)="onPhone($event)">
+                </div>
+                <div class="form__text">
+                  <input *ngIf="!email || email === null" type="email" name="email" placeholder="Email Address" [class.error]="email===false" (keyup)="onEmail($event)">
+                  <input *ngIf="email" type="email" name="email" [value]="tokenEmail" class="input-disabled" disabled>
+                </div>
+                <div class="re-captcha">
+                  <re-captcha
+                    #captchaRef="reCaptcha"
+                    (resolved)="resolved($event)"
+                    (error)="onError($event)"
+                    errorMode="handled"
+                    size="invisible"
+                  ></re-captcha>
+                </div>
+
+                <div class="form__submit">
+                  <input type="submit" value="Claim" (click)="captchaRef.execute()" class="btn_green_dark-primary" [class.btn-disabled]="!onDisabled" [disabled]="!onDisabled">
+                </div>
+              </div>
+          </form>
+        </div>
+        <div *ngIf="mobile" class="img-main">
+          <div>
+            <img class="p-b" [defaultImage]="'./assets/images/home/landing-main-m.png'" [lazyLoad]="'./assets/images/home/landing-main-m.png'" />
+          </div>
+        </div>
+      </div>
+      <div *ngIf="web" class="col-lg-6 col-md-6 col-11">
+        <div>
+          <img [defaultImage]="defaultImage" [lazyLoad]="image" />
+        </div>
+      </div>
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="col-lg-8 col-md-11 col-11">
+        <div class="bottom-title">
+          <div class="bottom-title__text">
+            Sign up for $10 and you can get assessment report and 4 FREE sessions!
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

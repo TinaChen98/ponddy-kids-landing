@@ -1,0 +1,97 @@
+.feature {
+  padding: 198px 0 228px 0;
+  background-image: url('/assets/images/home/feature-bg-w.png');
+  background-size: cover;
+  background-position: center;
+
+  @media (max-width: 991px) {
+    background-image: url('/assets/images/home/feature-bg-m.svg');
+    padding: 67px 0 35px 0;
+    background-position: top center;
+  }
+
+  &__display {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__item {
+    text-align: center;
+
+    &__title {
+      font-weight: 700;
+      font-size: 32px;
+      line-height: 44px;
+      letter-spacing: 0.02em;
+      color: #2D3942;
+      padding-bottom: 24px;
+
+      @media (max-width: 991px) {
+        font-size: 18px;
+        line-height: 25px;
+        padding-bottom: 14px;
+      }
+    }
+
+    &__title-small {
+      font-weight: 700;
+      font-size: 26px;
+      line-height: 36px;
+      letter-spacing: 0.05em;
+      color: #576168;
+      padding-bottom: 24px;
+
+      @media (max-width: 991px) {
+        font-size: 16px;
+        line-height: 20px;
+        padding-bottom: 14px;
+      }
+    }
+
+    &__text {
+      text-align: left;
+      font-weight: 400;
+      font-size: 22px;
+      line-height: 40px;
+      letter-spacing: 0.02em;
+      color: #2D3942;
+
+      @media (max-width: 991px) {
+        font-size: 14px;
+        line-height: 22px;
+      }
+    }
+  }
+
+  .bg-yellow {
+    background-image: url('/assets/images/home/feature-bg-yellow-w.svg');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    max-width: 446px;
+    padding: 70px 68px;
+
+    @media (max-width: 991px) {
+      background-image: url('/assets/images/home/feature-bg-yellow-m.svg');
+      height: 332px;
+      padding: 100px 52px 0 52px;
+      // margin-bottom: 37px;
+      max-width: 320px;
+    }
+  }
+
+  .bg-blue {
+    background-image: url('/assets/images/home/feature-bg-blue-w.svg');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    max-width: 446px;
+    padding: 70px 50px;
+
+    @media (max-width: 991px) {
+      background-image: url('/assets/images/home/feature-bg-blue-m.svg');
+      height: 332px;
+      padding: 110px 45px 0 45px;
+      max-width: 320px;
+    }
+  }
+
+}

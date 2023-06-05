@@ -1,0 +1,50 @@
+<section class="form-table" id="form">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-6 col-md-11 col-11">
+        <div class="form-table__display">
+          <form (submit)="userState($event)">
+            <div class="form">
+              <div class="form__title">
+                Ready to learn Chinese with Ponddy?
+              </div>
+              <div class="form__description">
+                Fill out the form below, and claim your FREE starting package now! Our consultant will contact you shortly.
+              </div>
+
+              <input type="hidden" name="title" value="Ponddy Tutors - Kids Landing">
+              <input type="hidden" name="source" value="Kids Landing">
+              <input type="hidden" name="sourceUrl" value="https://kids.ponddy.com/">
+              <input type="hidden" name="fieldParent" value="Parent: ">
+              <input type="hidden" name="fieldPhone" value="Phone: ">
+              <input type="hidden" name="fieldEmail" value="Email: ">
+              <div class="form__text">
+                <input type="text" name="parent" placeholder="Parent's Name" (keyup)="onParent($event)">
+              </div>
+              <div class="form__text">
+                <input type="text" name="phone" placeholder="Phone Number" (keyup)="onPhone($event)">
+              </div>
+              <div class="form__text">
+                <input *ngIf="tokenEmail === null" type="email" name="email" placeholder="Email Address" [class.error]="email===false" (keyup)="onEmail($event)">
+                <input *ngIf="tokenEmail != null" type="email" name="email" [value]="tokenEmail" class="input-disabled" disabled>
+              </div>
+              <div class="re-captcha">
+                <re-captcha
+                  #captchaRef="reCaptcha"
+                  (resolved)="resolved($event)"
+                  (error)="onError($event)"
+                  errorMode="handled"
+                  size="invisible"
+                ></re-captcha>
+              </div>
+
+              <div class="form__submit">
+                <input type="submit" value="Claim" (click)="captchaRef.execute()" class="btn_green_dark-primary" [class.btn-disabled]="!onDisabled" [disabled]="!onDisabled">
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

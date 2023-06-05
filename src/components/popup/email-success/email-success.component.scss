@@ -1,0 +1,76 @@
+.live-lessons-popup-email-ok {
+  background: linear-gradient(122.72deg, #DBF4FF 3.65%, #FBFEFF 19%, #EBF2F5 89.29%, #D7F2FE 100.47%);
+  padding: 36px 48px;
+  text-align: center;
+  position: relative;
+
+  @media (max-width: 991px) {
+    padding: 48px 16px 36px 16px;
+  }
+
+  .popup-email-ok {
+    display: flex;
+    justify-content: center;
+    margin: 110px 42px 0 42px;
+    @media (max-width: 991px) {
+      display: block;
+      margin: 80px 30px 0 30px;
+    }
+    &__close {
+      display: flex;
+      justify-content: end;
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      @media (max-width: 991px) {
+        // right: 6vw;
+        // top: 14vh;
+      }
+
+      button {
+        cursor: pointer;
+        background: #FFFFFF;
+        box-shadow: 0px 2px 4px rgba(45, 116, 138, 0.17);
+        border: none;
+        border-radius: 25px;
+        padding: 8px 16px;
+      }
+    }
+
+    &__img {
+      display: flex;
+      justify-content: center;
+      &__size {
+        width: 150px;
+        height: 150px;
+        @media (max-width: 991px) {
+          max-width: 100px;
+          max-height: 100px;
+        }
+        img {
+          width: 100%;
+        }
+      }
+    }
+
+    &__title {
+      font-weight: bold;
+      font-size: 28px;
+      padding: 24px 0 12px 0;
+      color: #2D3942;
+      @media (max-width: 991px) {
+        font-size: 24px;
+        padding: 24px 0 18px 0;
+      }
+    }
+
+    &__description {
+      font-size: 16px;
+      color: #2D3942;
+      @media (max-width: 991px) {
+        font-size: 14px;
+        line-height: 20px;
+      }
+    }
+  }
+}

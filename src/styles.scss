@@ -1,0 +1,20 @@
+/* You can add global styles to this file, and also import other style files */
+html, body {
+  height: 100%;
+  max-width: 100vw;
+}
+
+body {
+  margin: 0;
+  font-family: Ponddy-NotoRubik, sans-serif !important;
+}
+.text-center {
+  text-align: center;
+}
+
+.grecaptcha-badge { visibility: hidden; }
+
+@import "src/assets/font/PonddyNotoRubik";
+@import "src/assets/ponddy-guidline.scss";
+@import "~@angular/cdk/overlay-prebuilt.css";
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
