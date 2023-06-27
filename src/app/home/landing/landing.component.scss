@@ -1,13 +1,13 @@
 .landing {
   padding-top: 65px;
-  background-image: url('/assets/images/home/landing-bg-w.svg');
+  background-image: url('/ponddy-kids-landing/assets/images/home/landing-bg-w.svg');
   background-size: cover;
   background-position: center 38px;
   background-repeat: no-repeat;
   overflow-x: hidden;
 
   @media (max-width: 991px) {
-    background-image: url('/assets/images/home/landing-bg-m.svg');
+    background-image: url('/ponddy-kids-landing/assets/images/home/landing-bg-m.svg');
     background-position: top center;
   }
 
@@ -69,7 +69,7 @@
 
   form {
     margin-top: 36px;
-    background-image: url('/assets/images/home/landing-form-table-w.svg');
+    background-image: url('/ponddy-kids-landing/assets/images/home/landing-form-table-w.svg');
     background-size: contain;
     background-repeat: no-repeat;
     padding: 36px;
@@ -155,7 +155,7 @@
   }
 
   .bottom-title {
-    background-image: url('/assets/images/home/landing-title-bg-w.svg');
+    background-image: url('/ponddy-kids-landing/assets/images/home/landing-title-bg-w.svg');
     background-size: 100% 100%;
     background-repeat: no-repeat;
 
@@ -167,7 +167,7 @@
 
     @media (max-width: 991px) {
       height: 157px;
-      background-image: url('/assets/images/home/landing-title-bg-m.svg');
+      background-image: url('/ponddy-kids-landing/assets/images/home/landing-title-bg-m.svg');
       background-size: auto;
       background-position: center;
       margin-bottom: 23px;

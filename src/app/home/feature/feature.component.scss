@@ -1,11 +1,11 @@
 .feature {
   padding: 198px 0 228px 0;
-  background-image: url('/assets/images/home/feature-bg-w.png');
+  background-image: url('/ponddy-kids-landing/assets/images/home/feature-bg-w.png');
   background-size: cover;
   background-position: center;
 
   @media (max-width: 991px) {
-    background-image: url('/assets/images/home/feature-bg-m.svg');
+    background-image: url('/ponddy-kids-landing/assets/images/home/feature-bg-m.svg');
     padding: 67px 0 35px 0;
     background-position: top center;
   }
@@ -64,14 +64,14 @@
   }
 
   .bg-yellow {
-    background-image: url('/assets/images/home/feature-bg-yellow-w.svg');
+    background-image: url('/ponddy-kids-landing/assets/images/home/feature-bg-yellow-w.svg');
     background-size: 100% 100%;
     background-repeat: no-repeat;
     max-width: 446px;
     padding: 70px 68px;
 
     @media (max-width: 991px) {
-      background-image: url('/assets/images/home/feature-bg-yellow-m.svg');
+      background-image: url('/ponddy-kids-landing/assets/images/home/feature-bg-yellow-m.svg');
       height: 332px;
       padding: 100px 52px 0 52px;
       // margin-bottom: 37px;
@@ -80,14 +80,14 @@
   }
 
   .bg-blue {
-    background-image: url('/assets/images/home/feature-bg-blue-w.svg');
+    background-image: url('/ponddy-kids-landing/assets/images/home/feature-bg-blue-w.svg');
     background-size: 100% 100%;
     background-repeat: no-repeat;
     max-width: 446px;
     padding: 70px 50px;
 
     @media (max-width: 991px) {
-      background-image: url('/assets/images/home/feature-bg-blue-m.svg');
+      background-image: url('/ponddy-kids-landing/assets/images/home/feature-bg-blue-m.svg');
       height: 332px;
       padding: 110px 45px 0 45px;
       max-width: 320px;

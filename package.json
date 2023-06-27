@@ -7,7 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "build-pages": "ng build --configuration production --base-href /kids-landing/",
+    "build-pages": "ng build --configuration production --base-href /ponddy-kids-landing/",
     "push-pages": "npx ngh --dir=dist/kids-landing"
   },
   "private": true,
